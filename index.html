@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Lava TV | أفضل تطبيق بث مباشر بدون إعلانات</title>
-    <meta name="description" content="تطبيق Lava TV - بث مباشر للقنوات الرياضية والترفيهية بجودة عالية بدون إعلانات، متوافق مع الهواتف وأجهزة التلفاز الذكية">
-    <!-- Font Awesome 6 (free icons for extra visual touch) -->
+    <meta name="description" content="تطبيق Lava TV - بث مباشر للقنوات بدون إعلانات، للهواتف والتلفاز، مع رمز تحميل 1632983">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: Tajawal modern Arabic font -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
         * {
@@ -24,303 +22,238 @@
             scroll-behavior: smooth;
         }
 
-        /* main container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 1rem 1.5rem 3rem;
         }
 
-        /* header / top bar with download button */
-        .header {
+        /* header مع خانتين: زر الهاتف + كود التلفاز */
+        .top-bar {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
             justify-content: space-between;
-            padding: 1rem 0 0.5rem;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
             border-bottom: 1px solid rgba(255,255,255,0.2);
-            margin-bottom: 2rem;
         }
 
-        .logo-area h1 {
-            font-size: 2rem;
+        .logo h1 {
+            font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
             background: linear-gradient(135deg, #FFF, #b3e0ff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .logo-area p {
-            font-size: 0.85rem;
+        .logo p {
+            font-size: 0.8rem;
             opacity: 0.9;
-            font-weight: 500;
         }
 
-        /* زر التحميل العلوي */
-        .download-top-btn {
-            background: #ffb347;
+        .download-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* زر تحميل الهاتف (الرابط المباشر) */
+        .mobile-btn {
+            background: #ff9800;
             background: linear-gradient(45deg, #ff9800, #ffc107);
             border: none;
-            padding: 0.85rem 1.8rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 60px;
             font-family: 'Tajawal', sans-serif;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #0a2f44;
             cursor: pointer;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            border: none;
+            gap: 8px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            text-decoration: none;
         }
 
-        .download-top-btn i {
-            font-size: 1.3rem;
-            color: #1e2f3e;
-        }
-
-        .download-top-btn:hover {
+        .mobile-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
-            background: linear-gradient(45deg, #ffb347, #ffda7c);
+            background: #ffb347;
         }
 
-        .download-top-btn:active {
-            transform: translateY(2px);
+        /* بطاقة كود التلفاز (Downloader) */
+        .tv-code-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(6px);
+            padding: 0.6rem 1.4rem;
+            border-radius: 60px;
+            border-right: 4px solid #ffc107;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
         }
 
-        /* hero section */
+        .tv-code-card i {
+            font-size: 1.4rem;
+            color: #ffd966;
+        }
+
+        .code-number {
+            background: #000000aa;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-family: monospace;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #ffd966;
+        }
+
+        /* باقي التصميم مثل السابق */
         .hero {
             text-align: center;
-            margin: 2rem 0 2.5rem;
+            margin: 1.5rem 0 2rem;
         }
 
         .hero h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .hero h2 span {
-            color: #ffe28a;
-            background: rgba(0,0,0,0.2);
-            padding: 0 8px;
-            border-radius: 20px;
-            display: inline-block;
+            margin-bottom: 0.8rem;
         }
 
         .hero .tagline {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(4px);
             display: inline-block;
-            padding: 0.6rem 1.8rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 60px;
-            font-weight: 500;
-            margin-top: 0.5rem;
         }
 
-        /* قسم الصور (تلفاز وقنوات) */
         .media-gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2.2rem;
-            margin: 3rem 0 3rem;
+            gap: 2rem;
+            margin: 2.5rem 0;
         }
 
         .card-icon {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(8px);
             border-radius: 36px;
-            padding: 1.8rem 1rem;
+            padding: 1.5rem 1rem;
             text-align: center;
-            width: 220px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.25);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+            width: 210px;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .card-icon:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             background: rgba(255,255,255,0.2);
-            border-color: #ffd966;
         }
 
-        .svg-img {
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 1.2rem;
-            display: block;
+        .svg-img svg {
+            width: 90px;
+            height: 90px;
         }
 
-        .card-icon h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .card-icon p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* ميزات التطبيق */
         .features {
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0,0,0,0.2);
             border-radius: 48px;
-            padding: 2rem 1.8rem;
+            padding: 1.8rem;
             margin: 2rem 0;
             text-align: center;
-        }
-
-        .features h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
         }
 
         .features-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
         .feature-item {
-            flex: 1;
-            min-width: 150px;
             background: rgba(255,255,240,0.08);
-            padding: 1rem;
+            padding: 0.7rem 1.2rem;
             border-radius: 32px;
-            font-weight: 500;
         }
 
-        .feature-item i {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 0.8rem;
-            color: #ffd966;
-        }
-
-        /* زر تحميل ثانوي اختياري لتعزيز الطلب */
-        .extra-download {
-            text-align: center;
-            margin: 2rem 0 1rem;
-        }
-        .download-secondary {
-            background: #ffffff;
-            color: #0a2f6c;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            font-family: inherit;
-            cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-        }
-        .download-secondary:hover {
-            background: #ffe8c7;
-            transform: scale(1.02);
-        }
-
-        /* footer */
         .footer {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            font-size: 0.85rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            font-size: 0.8rem;
             opacity: 0.8;
         }
 
-        /* responsive */
-        @media (max-width: 700px) {
-            .header {
+        @media (max-width: 750px) {
+            .top-bar {
                 flex-direction: column;
                 text-align: center;
-                gap: 1rem;
+            }
+            .download-actions {
+                justify-content: center;
             }
             .hero h2 {
-                font-size: 1.6rem;
-            }
-            .hero .tagline {
-                font-size: 1rem;
-            }
-            .card-icon {
-                width: 170px;
-                padding: 1rem;
-            }
-            .svg-img {
-                width: 80px;
-                height: 80px;
-            }
-            .features h3 {
                 font-size: 1.5rem;
             }
-            .download-top-btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 1rem;
-            }
-        }
-
-        /* custom button focus */
-        button, .download-top-btn {
-            user-select: none;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- الرأس مع زر التحميل في الأعلى كما هو مطلوب -->
-    <div class="header">
-        <div class="logo-area">
+    <!-- المنطقة العلوية: الشعار + أزرار التحميل للهاتف وكود التلفاز -->
+    <div class="top-bar">
+        <div class="logo">
             <h1>LAVA TV</h1>
-            <p>🎬 بث بلا حدود | متعة المشاهدة</p>
+            <p>بث حي بدون إعلانات</p>
         </div>
-        <!-- الزر المطلوب "اضغط هنا" في الأعلى لتحميل التطبيق -->
-        <button class="download-top-btn" id="downloadMainBtn">
-            <i class="fas fa-download"></i> اضغط هنا لتحميل التطبيق
-        </button>
+        <div class="download-actions">
+            <!-- زر تحميل الهاتف بالرابط المباشر -->
+            <a href="https://github.com/Kadikadari/ziko/raw/refs/heads/main/lava-mobile-.apk" class="mobile-btn" download>
+                <i class="fas fa-download"></i> تحميل للهاتف (APK)
+            </a>
+            <!-- خانة كود داونلودر لأجهزة التلفاز -->
+            <div class="tv-code-card">
+                <i class="fas fa-tv"></i>
+                <span>أمازون ستيك / أندرويد بوكس / تلفاز:</span>
+                <span class="code-number">1632983</span>
+                <i class="fas fa-download"></i>
+            </div>
+        </div>
     </div>
 
-    <!-- المحتوى الرئيسي -->
+    <!-- المحتوى الترويجي -->
     <div class="hero">
-        <h2>أفضل تطبيق <span>بث مباشر</span> بدون إعلانات</h2>
+        <h2>أفضل تطبيق <span style="color:#ffe28a;">بث مباشر</span> بدون إعلانات</h2>
         <div class="tagline">
-            <i class="fas fa-tv"></i> للهواتف والتلفاز • جودة عالية • مجاني
+            <i class="fas fa-mobile-alt"></i> للهواتف و <i class="fas fa-tv"></i> التلفاز • جودة عالية
         </div>
-        <p style="margin-top: 1rem; font-size: 1.1rem;">مشاهدة القنوات الرياضية، الأفلام، المسلسلات، والأخبار لحظة بلحظة</p>
     </div>
 
-    <!-- صور تعبر عن تلفاز وقنوات - تصميم SVG مخصص وحديث -->
+    <!-- صور تلفاز وقنوات (كما كانت) -->
     <div class="media-gallery">
-        <!-- صورة تلفاز (تعبير عن التلفاز) -->
         <div class="card-icon">
             <div class="svg-img">
                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="15" y="25" width="70" height="48" rx="8" fill="#E6F0FF" stroke="#FFD966" stroke-width="2.2"/>
+                    <rect x="15" y="25" width="70" height="48" rx="8" fill="#E6F0FF" stroke="#FFD966" stroke-width="2"/>
                     <rect x="28" y="33" width="44" height="30" rx="4" fill="#0A2F6C" stroke="#E6B422" stroke-width="1.5"/>
-                    <path d="M40 73 L45 78 L55 78 L60 73" stroke="#FFD966" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M40 73 L45 78 L55 78 L60 73" stroke="#FFD966" stroke-width="2" fill="none"/>
                     <circle cx="50" cy="48" r="4" fill="#FFE484"/>
-                    <path d="M22 21 L78 21 L78 25 L22 25 Z" fill="#B0C4FF" stroke="#E6B422" stroke-width="1"/>
-                    <rect x="35" y="15" width="30" height="8" rx="2" fill="#9BBDFF" stroke="#FFD966" stroke-width="1"/>
                 </svg>
             </div>
             <h3>تلفاز ذكي</h3>
-            <p>مشاهدة على الشاشات الكبيرة</p>
+            <p>شاشات كبيرة بدون تقطيع</p>
         </div>
-
-        <!-- صور قنوات متعددة: تعبر عن تنوع القنوات -->
         <div class="card-icon">
             <div class="svg-img">
                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -329,93 +262,52 @@
                     <rect x="10" y="58" width="35" height="30" rx="6" fill="#D9E6F7" stroke="#FFB347" stroke-width="2"/>
                     <rect x="55" y="58" width="35" height="30" rx="6" fill="#FFDDAA" stroke="#FFB347" stroke-width="2"/>
                     <text x="23" y="40" font-size="12" fill="#0A2F6C" font-weight="bold">SPORT</text>
-                    <text x="65" y="40" font-size="10" fill="#0A2F6C" font-weight="bold">NEWS</text>
-                    <text x="19" y="78" font-size="12" fill="#0A2F6C" font-weight="bold">MOVIE</text>
-                    <text x="63" y="78" font-size="11" fill="#0A2F6C" font-weight="bold">KIDS</text>
+                    <text x="65" y="40" font-size="10" fill="#0A2F6C">NEWS</text>
                 </svg>
             </div>
             <h3>قنوات متنوعة</h3>
-            <p>أكثر من 500 قناة عالمية وعربية</p>
+            <p>500+ قناة عالمية وعربية</p>
         </div>
-
-        <!-- صورة إضافية : بث حي مباشر يعبر عن التطبيق -->
         <div class="card-icon">
             <div class="svg-img">
                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="50" cy="50" r="32" fill="#DFF2FF" stroke="#FFC107" stroke-width="2.5"/>
                     <path d="M60 48 L44 39 L44 57 L60 48Z" fill="#0E4B8E" stroke="#FFD966" stroke-width="1.2"/>
-                    <path d="M33 36 L28 50 L33 64" stroke="#FFB347" stroke-width="2.5" stroke-linecap="round"/>
-                    <path d="M67 36 L72 50 L67 64" stroke="#FFB347" stroke-width="2.5" stroke-linecap="round"/>
-                    <circle cx="50" cy="50" r="5" fill="#F7B32B"/>
+                    <path d="M33 36 L28 50 L33 64" stroke="#FFB347" stroke-width="2.5"/>
+                    <path d="M67 36 L72 50 L67 64" stroke="#FFB347" stroke-width="2.5"/>
                 </svg>
             </div>
             <h3>بث مباشر HD</h3>
-            <p>بدون تقطيع وبدون إعلانات مزعجة</p>
+            <p>بدون إعلانات مزعجة</p>
         </div>
     </div>
 
-    <!-- وصف إضافي عن المزايا -->
+    <!-- مزايا إضافية -->
     <div class="features">
-        <h3>✨ لماذا تطبيق Lava TV؟ ✨</h3>
+        <h3>✨ مميزات Lava TV ✨</h3>
         <div class="features-grid">
-            <div class="feature-item"><i class="fas fa-ban"></i> ٠٪ إعلانات</div>
-            <div class="feature-item"><i class="fas fa-mobile-alt"></i> يدعم الهواتف والتلفاز</div>
-            <div class="feature-item"><i class="fas fa-tachometer-alt"></i> سرعة فائقة بالبث</div>
-            <div class="feature-item"><i class="fas fa-globe"></i> قنوات عالمية حصرية</div>
+            <div class="feature-item"><i class="fas fa-ban"></i> بدون إعلانات</div>
+            <div class="feature-item"><i class="fas fa-tachometer-alt"></i> سرعة فائقة</div>
+            <div class="feature-item"><i class="fas fa-desktop"></i> يعمل على التلفاز والهاتف</div>
+            <div class="feature-item"><i class="fas fa-download"></i> تثبيت عن طريق كود 1632983</div>
         </div>
     </div>
 
-    <!-- زر تحميل آخر اختياري لكن ليس إجباري، الزر الأساسي بالأعلى لكن نضيف للراحة -->
-    <div class="extra-download">
-        <button class="download-secondary" id="downloadSecondBtn">
-            <i class="fas fa-arrow-down"></i> تحميل تطبيق LAVA TV للهاتف
-        </button>
-        <p style="margin-top: 0.8rem; font-size: 0.85rem;">📱 متوافق مع Android • iOS • Android TV • Fire Stick</p>
+    <!-- شرح سريع لاستخدام الكود على أجهزة التلفاز -->
+    <div style="background: #0b3b6b; border-radius: 28px; padding: 1rem; text-align: center; margin: 1rem 0;">
+        <i class="fas fa-info-circle"></i> <strong>لأجهزة Android TV / Amazon Stick / Android Box:</strong>  
+        قم بتحميل تطبيق <strong>Downloader</strong> من المتجر، ثم أدخل الكود <span style="background:black; padding:0 8px; border-radius:20px;">1632983</span> لتثبيت Lava TV مباشرة.
     </div>
 
     <div class="footer">
-        <p>© 2025 Lava TV - أفضل تجربة مشاهدة بدون إعلانات. جميع الحقوق محفوظة</p>
-        <p style="margin-top: 5px;"><i class="fas fa-check-circle"></i> تطبيق رسمي • بث آمن ومباشر 24/7</p>
+        <p>© 2025 Lava TV - أفضل تطبيق بث مباشر بدون إعلانات للهواتف والتلفاز</p>
+        <p><i class="fas fa-check-circle"></i> روابط رسمية وآمنة</p>
     </div>
 </div>
 
 <script>
-    // وظيفة لمحاكاة تحميل التطبيق (لأنه موقع إعلاني تجريبي، نعرض رسالة توضيحية)
-    function simulateDownload() {
-        // عرض رسالة جذابة تنبيهية توضح بدء التحميل (Demo)
-        // يمكن تغيير الرابط لاحقاً إلى رابط حقيقي لملف APK أو صفحة التحميل
-        alert("📲 جارٍ تحميل تطبيق LAVA TV للهواتف الذكية 📲\n\nأفضل تطبيق بث مباشر بدون إعلانات.\nسيتم توجيهك إلى متجر التحميل قريباً (نسخة تجريبية).\n✅ متوافق مع أندرويد و أجهزة التلفاز.");
-        // في حال توفر رابط حقيقي، يمكن استخدام window.location.href = "https://github.com/Kadikadari/ziko/raw/refs/heads/main/lava-mobile-.apk";
-        // لكن حسب الطلب موقع إعلاني بسيط، نكتفي بالتنبيه.
-    }
-
-    // جلب الأزرار وإضافة الحدث
-    const mainBtn = document.getElementById('downloadMainBtn');
-    const secondBtn = document.getElementById('downloadSecondBtn');
-    
-    if(mainBtn) {
-        mainBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            simulateDownload();
-        });
-    }
-    if(secondBtn) {
-        secondBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            simulateDownload();
-        });
-    }
-
-    // إضافة تأثير اهتزاز بسيط لأزرار التحميل أو تفاعل
-    const btns = document.querySelectorAll('.download-top-btn, .download-secondary');
-    btns.forEach(btn => {
-        btn.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.97)';
-        });
-        btn.addEventListener('touchend', function() {
-            this.style.transform = '';
-        });
-    });
+    // أي تفاعل إضافي اختياري - الرابط المباشر يعمل تلقائياً
+    console.log("Lava TV - صفحة التحميل مع كود 1632983");
 </script>
 </body>
 </html>
